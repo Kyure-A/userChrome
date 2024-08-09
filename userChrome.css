@@ -1,0 +1,162 @@
+:root:not([customizing],[chromehidden~="menubar"]){
+    --uc-vertical-tabs-width: 40px;
+    --uc-navbar-height: 40px;
+}
+
+:root[uidensity="compact"]:not([customizing],[chromehidden~="menubar"]){
+    --uc-navbar-height: 34px;
+}
+
+#PersonalToolbar,
+#tab-notification-deck,
+.global-notificationbox,
+#main-window:not([inDOMFullscreen]) > body > #browser{
+    margin-left: 0;
+    margin-right: var(--uc-vertical-tabs-width);
+}
+
+#tab-notification-deck,
+.global-notificationbox{
+    width: auto !important;
+}
+
+.tabbrowser-tab{
+    min-width: 0.1px !important;
+    margin-inline: 0 !important;
+    overflow-x: clip;
+    
+    label {
+        visibility: collapse;
+    }
+}
+
+.tab-label-container[pinned]{
+    margin-inline-start: 5.5px;
+}
+
+:root:not([customizing]) #tabbrowser-tabs{
+    position: absolute !important;
+    height: 100vh;
+    left: unset;
+    right: 0;
+    padding-top: var(--uc-navbar-height);
+    width: var(--uc-vertical-tabs-width);
+    background-color: var(--toolbar-bgcolor);
+    contain: size;
+}
+
+:root[lwtheme]:not([customizing]) #tabbrowser-tabs{
+    background-color: var(--lwt-accent-color);
+}
+
+:root:not([customizing]) #toolbar-menubar[autohide="false"] + #TabsToolbar #tabbrowser-tabs{
+    height: calc(100vh - 28px);
+}
+
+:root:not([customizing]) #TabsToolbar #new-tab-button,
+
+#alltabs-button{
+    display: none;
+}
+
+#tabbrowser-tabs[hasadjacentnewtabbutton] #tabs-newtab-button{
+    display: flex !important;
+    flex-grow: 1;
+}
+
+.tab-icon-stack {
+    position: absolute;
+    z-index: 1;
+}
+
+.tab-close-button {
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+    transform: translate(-15%, 5%);
+    
+    &:hover {
+        opacity: 1;
+        background-color: black;
+    }
+}
+
+#tabs-newtab-button > .toolbarbutton-icon{
+    background: none !important;
+}
+
+#tabs-newtab-button{
+    margin: 2px !important;
+    border-radius: var(--tab-border-radius);
+    &:hover{
+        background-color: var(--toolbarbutton-hover-background) !important;
+    }
+    &:hover:active{
+        background-color: var(--toolbarbutton-active-background) !important;
+    }
+}
+
+#TabsToolbar > .titlebar-buttonbox-container{
+    position: absolute;
+    right: 0;
+}
+
+:root:not([customizing]) #tabbrowser-arrowscrollbox{
+    --uc-scrollbox-box-model: -webkit-box;
+    --uc-scrollbox-height: 100vh;
+    --uc-scrollbutton-display: none;
+    --uc-scrollbox-overflow: auto;
+}
+
+#tabbrowser-arrowscrollbox {
+    overflow: -moz-hidden-unscrollable;
+}
+
+scrollbox[orient="horizontal"]{
+    display: var(--uc-scrollbox-box-model,flex);
+    -webkit-box-orient: vertical;
+    height: 100%;
+    overflow: var(--uc-scrollbox-overflow,initial);
+}
+
+#scrollbutton-up,
+#scrollbutton-down{
+    display: var(--uc-scrollbutton-display,initial);
+}
+
+@-moz-document url(chrome://browser/content/browser.xhtml){
+
+    :root:not([inFullscreen]){
+        --uc-bottom-toolbar-height: calc(39px + var(--toolbarbutton-outer-padding) )
+    }
+
+    :root[uidensity="compact"]:not([inFullscreen]){
+        --uc-bottom-toolbar-height: calc(32px + var(--toolbarbutton-outer-padding) )
+    }
+
+    #browser,
+    #customization-container{ margin-bottom: var(--uc-bottom-toolbar-height,0px) }
+
+    #nav-bar{
+        position: fixed !important;
+        bottom: 0px;
+        /* For some reason -webkit-box behaves internally like -moz-box, but can be used with fixed position. display: flex would work too but it breaks extension menus. */
+        display: -webkit-box;
+        width: 100%;
+        z-index: 1;
+    }
+    #nav-bar-customization-target{ -webkit-box-flex: 1; }
+
+    /* Fix panels sizing */
+    .panel-viewstack{ max-height: unset !important; }
+
+    #urlbar[breakout][breakout-extend]{
+        display: flex !important;
+        flex-direction: column-reverse;
+        bottom: 0px !important; /* Change to 3-5 px if using compact_urlbar_megabar.css depending on toolbar density */
+        top: auto !important;
+    }
+
+    .urlbarView-body-inner{ border-top-style: none !important; }
+
+}
