@@ -11,6 +11,6 @@ This userChrome.css provides Vivaldi Browser like vertical tabs and bottom addre
 
 ** Images
 *** before
-file:./img/before.png
+[[file:./img/before.png]]
 *** after
-file:./img/after.png
+[[file:./img/after.png]]
