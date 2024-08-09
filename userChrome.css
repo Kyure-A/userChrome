@@ -9,7 +9,7 @@
     }
 
     :root:not([customizing],[chromehidden~="menubar"]){
-        --uc-vertical-tabs-width: 40px;
+        --uc-vertical-tabs-width: 41.6px;
         --uc-navbar-height: 40px;
     }
 
@@ -97,6 +97,10 @@
         width: 16px;
         height: 16px;
         z-index: 1;
+    }
+
+    .tab-icon-stack[pinned]{
+        padding-left: 0px !important;
     }
 
     .tab-close-button {
