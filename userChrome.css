@@ -108,6 +108,8 @@
         opacity: 0;
         z-index: 10;
         transform: translate(-15%, 5%);
+        margin-left: 2px;
+        margin-top: 1px;
         
         &:hover {
             opacity: 1;
