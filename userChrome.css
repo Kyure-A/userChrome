@@ -34,12 +34,28 @@
         min-width: 0.1px !important;
         margin-inline: 0 !important;
         overflow-x: clip;
+        width: var(--uc-vertical-tabs-width);
+        height: var(--uc-navbar-height);
         
         label {
             visibility: collapse;
         }
     }
 
+    .tab-background {
+        width: 36px !important;
+        height: 32px !important;
+    }
+    
+    .tab-content {
+        width: 34px;
+        height: 40px;
+    }
+
+    .tab-label-container {
+        visibility: collapse;
+    }
+    
     .tab-label-container[pinned]{
         margin-inline-start: 5.5px;
     }
@@ -75,7 +91,11 @@
     }
 
     .tab-icon-stack {
+        padding-left: 2px !important;
+        padding-top: 2px !important;
         position: absolute;
+        width: 16px;
+        height: 16px;
         z-index: 1;
     }
 
