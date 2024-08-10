@@ -9,8 +9,8 @@
     }
 
     :root:not([customizing],[chromehidden~="menubar"]){
-        --uc-vertical-tabs-width: 41.6px;
-        --uc-navbar-height: 40px;
+        --uc-vertical-tabs-width: 28px;
+        --uc-navbar-height: 28px;
     }
 
     :root[uidensity="compact"]:not([customizing],[chromehidden~="menubar"]){
@@ -42,22 +42,24 @@
         }
     }
 
+    .tabbrowser-tab[pinned] { /* Without this, it will look weird when pinning tabs */
+        flex: 100 100;
+        transition: min-width 100ms ease-out, max-width 100ms ease-out;
+    }
+
     .tab-background {
-        width: 36px !important;
-        height: 32px !important;
+        width: 24px !important;
+        height: 24px !important;
+        min-height: 24px !important;
     }
     
     .tab-content {
-        width: 34px;
-        height: 40px;
+        width: 20px !important;
+        height: 20px !important;
     }
 
     .tab-label-container {
         visibility: collapse;
-    }
-    
-    .tab-label-container[pinned]{
-        margin-inline-start: 5.5px;
     }
 
     :root:not([customizing]) #tabbrowser-tabs{
@@ -90,25 +92,24 @@
     }
 
     .tab-icon-stack {
-        padding-left: 2px !important;
-        padding-top: 2px !important;
         position: absolute;
         width: 16px;
         height: 16px;
         z-index: 1;
+        transform: translate(-25%, 40%);
     }
 
-    .tab-icon-stack[pinned]{
-        padding-left: 0px !important;
+    .tab-icon-stack[pinned]{ /* When pin the tab, the favicon moves slightly to the right, so adjust it. */
+        transform: translate(-35%, 40%);
     }
 
     .tab-close-button {
         position: absolute;
         opacity: 0;
         z-index: 10;
-        transform: translate(-15%, 5%);
-        margin-left: 2px;
-        margin-top: 1px;
+        transform: translate(-30%, 30%);
+        width: 20px !important;
+        height: 20px !important;
         
         &:hover {
             opacity: 1;
@@ -121,7 +122,7 @@
     }
 
     #tabs-newtab-button{
-        margin: 2px !important;
+        width: 28px;
         border-radius: var(--tab-border-radius);
         &:hover{
             background-color: var(--toolbarbutton-hover-background) !important;
