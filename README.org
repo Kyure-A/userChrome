@@ -2,15 +2,16 @@
 This userChrome.css provides Vivaldi Browser like vertical tabs and bottom address bar (without extensions).
 
 ** Usage
-1. Go to the Firefox profiles folder
-2. Execute the command below
+1. set toolkit.legacyUserProfileCustomizations.stylesheets to true
+2. Go to the Firefox profiles folder
+3. Execute the command below
    #+begin_src
   git clone git@github.com:Kyure-A/userChrome.git chrome --depth 1
 #+end_src
-3. Enjoy it!
+4. Enjoy it!
 
 ** Images
-*** before
-[[file:./img/before.png]]
-*** after
-[[file:./img/after.png]]
+*** sample
+[[file:./img/sample.png]]
+*** hover
+[[file:./img/hover.png]]
