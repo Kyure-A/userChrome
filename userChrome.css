@@ -31,6 +31,8 @@
     }
 
     .tabbrowser-tab{
+        padding-top: 2px;
+        padding-bottom: 2px;
         min-width: 0.1px !important;
         margin-inline: 0 !important;
         overflow-x: clip;
