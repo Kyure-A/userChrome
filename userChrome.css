@@ -29,12 +29,12 @@
     .global-notificationbox{
         width: auto !important;
     }
-
-    .tabbrowser-tab{
-        padding-top: 2px;
-        padding-bottom: 2px;
+    
+    .tabbrowser-tab {
+        /* padding-top: 2px; */
+        /* padding-bottom: 2px; */
         min-width: 0.1px !important;
-        margin-inline: 0 !important;
+        /* margin-inline: 0 !important; */ /* なんかこれあると unpinned tab が死にます */
         overflow-x: clip;
         width: var(--uc-vertical-tabs-width);
         height: var(--uc-navbar-height);
